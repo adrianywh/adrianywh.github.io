@@ -1,0 +1,118 @@
+#goToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */  
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+  
+#goToTopBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+body {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.jumbotron {
+    position: relative;
+    z-index: 2;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.jumbotron img {
+    margin-right: 1rem;
+}
+
+.main-nav .router-link-active {
+  font-weight: bold;
+}
+
+.nav-item-dropdown {
+  padding: 0;
+}
+
+.nav-item-dropdown a {
+  padding-top: 6px;
+  color: #868e96;
+}
+
+.div-card-img {
+    height: 10rem;
+    position: relative;
+}
+
+.card-img-top {
+   position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+    max-height: 15rem;
+    width: auto;
+}
+
+.fixed-bottom {
+  z-index: 1;
+}
+
+.submit-bar {
+  display: block;
+  background-color: #e9ecef;
+}
+
+.collapsed.card-header .c-up {
+  display: none;
+}
+
+.collapsed.card-header .c-dn {
+  display: inline-block;
+}
+
+.card-header .c-up {
+  display: inline-block;
+}
+
+.card-header .c-dn {
+  display: none;
+}
+
+.btn-video {
+  line-height: 1;
+  padding: 3px 5px;
+  margin-right: 10px;
+  margin-top: -3px;
+  margin-bottom: -2px;
+  border-color: rgba(0,0,0,.20);
+}
+
+label.btn-outline-secondary:not([disabled]):not(.disabled).active {
+  box-shadow: none;
+  background-color: #e9ecef;
+}
+
+#date-buttons label {
+  border: 1px solid #ced4da;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-image {
+  width:15%;
+}
+
+.hidden {
+  display: none;
+}

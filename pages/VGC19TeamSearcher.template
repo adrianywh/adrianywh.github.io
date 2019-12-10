@@ -1,0 +1,227 @@
+<title>VGC19 Team Searcher</title>
+
+<form id="vgcHelper" class="container">
+    <!--     <figure class='figure float-right'>
+        <a href="https://vgcstats.com" data-toggle="tooltip" data-placement="top" title="Go To vgcstats.com">
+            <img class="figure-img figure-fluid" src="https://www.serebii.net/art/th/576.png" alt="Go to vgcstats.com">
+        </a>
+        <figcaption class='figure-caption'>>> Go To vgcstats.com</figcaption>
+    </figure> -->
+    <div class="form-row">
+        <div class="col-lg-2">
+            <label>Player:</label>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-lg">
+            <select class="form-control vgcInputPlayer" id="vgcPlayer" name="vgcPlayers[]" multiple="multiple">
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-lg-2">
+            <label>Pkmn:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="selectAllPkmn">
+                <label class="form-check-label" for="selectAllPkmn">
+                    Select All Pkmn
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-lg-2">
+            <select class="form-control vgcInputPkmn" id="vgcPkmn1">
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control vgcInputPkmn" id="vgcPkmn2">
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control vgcInputPkmn" id="vgcPkmn3">
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control vgcInputPkmn" id="vgcPkmn4">
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control vgcInputPkmn" id="vgcPkmn5">
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control vgcInputPkmn" id="vgcPkmn6">
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-lg-2">
+            <label>Limit:</label>
+
+            <select class="form-control" id="selectLimit">
+                <option value="1">> 1</option>
+                <option value="2">> 2</option>
+                <option value="3">> 3</option>
+                <option value="4" selected>> 4</option>
+                <option value="5">> 5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <label>Event Type:</label>
+            <select class="form-control" id="selectEventType">
+                <option selected>All</option>
+                <option>MSS</option>
+                <option>PC</option>
+                <option>REG</option>
+                <option>NAT</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <label>Series:</label>
+            <select class="form-control" id="selectSeries">
+                <option selected>All</option>
+                <option>Sun</option>
+                <option>Moon</option>
+                <option>Ultra</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="form-row">
+        <div class="col">
+            <button type="button" class="btn btn-primary" onclick="searchTeam()">Search!</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-secondary" onclick="resetVgcForm()">Reset</button>
+        </div>
+        <div class="col">
+            <!-- <button type="button" class="btn btn-primary" onclick="">Expand</button> -->
+        </div>
+    </div>
+    </br>
+    <div class="form-row">
+        <table>
+        </table>
+    </div>
+    <br>
+    <div class="form-row">
+        <div id="noResults">
+            <h1>No Results
+        </div>
+    </div>
+    <div class="accordion col" id="suggestionResults">
+        <div class="card" id="cardOne" style="display:none;">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        6 Similar- Found <a id="sim6Found">0</a>
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#suggestionResults">
+                <div class="card-body" id="sim6body">
+
+                </div>
+            </div>
+        </div>
+        <div class="card" id="cardTwo" style="display:none;">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        5 Similar- Found <a id="sim5Found">0</a>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#suggestionResults">
+                <div class="card-body" id="sim5body">
+
+                </div>
+            </div>
+        </div>
+        <div class="card" id="cardThree" style="display:none;">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        4 Similar- Found <a id="sim4Found">0</a>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#suggestionResults">
+                <div class="card-body" id="sim4body">
+
+                </div>
+            </div>
+        </div>
+        <div class="card" id="cardFour" style="display:none;">
+            <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        3 Similar- Found <a id="sim3Found">0</a>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#suggestionResults">
+                <div class="card-body" id="sim3body">
+
+                </div>
+            </div>
+        </div>
+        <div class="card" id="cardFive" style="display:none;">
+            <div class="card-header" id="headingFive">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        2 Similar- Found <a id="sim2Found">0</a>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#suggestionResults">
+                <div class="card-body" id="sim2body">
+
+                </div>
+            </div>
+        </div>
+        <div class="card" id="cardSix" style="display:none;">
+            <div class="card-header" id="headingSix">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        1 Similar- Found <a id="sim1Found">0</a>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#suggestionResults">
+                <div class="card-body" id="sim1body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+</form>
+<br>
+<!-- <div class="container">
+    <div class="col-12">
+        Notes:
+        <ul>
+            <li>Best viewed on desktop</li>
+            <li>Competition team data from <a href="https://vgcstats.com">vgcstats.com</a></li>
+            <li>Developed using <a href="https://getbootstrap.com/">Bootstrap</a> and <a href="http://sammyjs.org/">sammyjs</a></a></li>
+            <li>Bug report/commments:
+                <a href="https://github.com/adrianywh/adrianywh.github.io/issues">here</a>
+            </li>
+            <ul>
+                <hr>
+    </div>
+</div> -->
+
+<script src="js/vgc19teamsearch.js"></script>
