@@ -17,6 +17,17 @@ console.log("hello world- from ayongwh");
                 .appendTo(context.$element());
         })
 
+        this.get('#/vgc20', function (context) {
+            var str = location.href.toLowerCase();
+
+            ga('set', 'page', '/VGC20TeamSearcher');
+            ga('send', 'pageview');
+
+            context.app.swap('');
+            context.render('/pages/VGC20TeamSearcher.template', {})
+                .appendTo(context.$element());
+        });
+
         this.get('#/', function (context) {
             var str = location.href.toLowerCase();
 

@@ -1,4 +1,4 @@
-<title>VGC19 Team Searcher</title>
+<title>VGC20 Team Searcher</title>
 
 <form id="vgcHelper" class="container">
     <!--     <figure class='figure float-right'>
@@ -219,4 +219,4 @@
     </div>
 </div> -->
 
-<script src="js/vgc19teamsearch.js"></script>
+<script src="js/vgc20teamsearch.js"></script>
