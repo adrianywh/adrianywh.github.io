@@ -83,13 +83,6 @@ function searchTeam() {
     var limit = $("#selectLimit").val();
     var inputPkmnList = [];
 
-    ga('send', {
-        hitType: 'event',
-        eventCategory: 'Team Search',
-        eventAction: 'vgc20 team search',
-        eventLabel: 'vgc20 team search'
-    });
-
     if (!$("#selectAllPkmn").is(':checked')) {
         if ($("#vgcPkmn1").val() != "-") {
             inputPkmnList.push($("#vgcPkmn1").val());
@@ -116,6 +109,13 @@ function searchTeam() {
     } else {
         inputPkmnList = ['-']
     }
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Team Search',
+        eventAction: 'vgc20 team search',
+        eventLabel: inputPkmnList.join(", ")
+    });
 
     if (limit > inputPkmnList.length && inputPkmnList.length != 0) {
         limit = inputPkmnList.length
