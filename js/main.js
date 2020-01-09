@@ -17,7 +17,7 @@ console.log("hello world- from ayongwh");
                 .appendTo(context.$element());
         })
 
-        this.get('#/vgc20', function (context) {
+        this.get('#/', function (context) {
             var str = location.href.toLowerCase();
 
             ga('set', 'page', '/VGC20TeamSearcher');
@@ -28,7 +28,7 @@ console.log("hello world- from ayongwh");
                 .appendTo(context.$element());
         });
 
-        this.get('#/', function (context) {
+        this.get('#/vgc19', function (context) {
             var str = location.href.toLowerCase();
 
             ga('set', 'page', '/VGC19TeamSearcher');

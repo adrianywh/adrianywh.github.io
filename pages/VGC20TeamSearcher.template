@@ -82,9 +82,7 @@
             <label>Series:</label>
             <select class="form-control" id="selectSeries">
                 <option selected>All</option>
-                <option>Sun</option>
-                <option>Moon</option>
-                <option>Ultra</option>
+                <option>Series 1</option>
             </select>
         </div>
     </div>
