@@ -105,6 +105,7 @@ function searchTeam() {
 
         if(inputPkmnList.length == 0){
             $("#selectAllPkmn").prop("checked",true).trigger("change");
+            inputPkmnList = ['-']
         }
     } else {
         inputPkmnList = ['-']
