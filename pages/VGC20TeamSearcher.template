@@ -202,6 +202,11 @@
     <br>
 </form>
 <br>
+<div class="container">
+    <div class="col-12 text-right">
+        Last updated on <a id="lastUpdatedText"></a>
+    </div>
+</div>
 <!-- <div class="container">
     <div class="col-12">
         Notes:

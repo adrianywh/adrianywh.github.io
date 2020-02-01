@@ -1,3 +1,4 @@
+var lastUpdated = "2020-February-01";
 var vgcTeams;
 
 $( document ).ready(function() {
@@ -66,6 +67,8 @@ $( document ).ready(function() {
     .then(function () {
         $("#vgcPlayer").select2();
     })
+
+     $("#lastUpdatedText").html(lastUpdated)
 })
 
 /********************vgc helper******************** */
