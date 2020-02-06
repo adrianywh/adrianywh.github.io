@@ -39,6 +39,17 @@ console.log("hello world- from ayongwh");
                 .appendTo(context.$element());
         });
 
+        this.get('#/privacy', function (context) {
+            var str = location.href.toLowerCase();
+
+            ga('set', 'page', '/PrivacyPolicy');
+            ga('send', 'pageview');
+
+            context.app.swap('');
+            context.render('/pages/PrivacyPolicy.template', {})
+                .appendTo(context.$element());
+        });
+
         this.notFound = function () {
             // do something 
         }
