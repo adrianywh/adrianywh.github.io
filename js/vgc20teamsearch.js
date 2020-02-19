@@ -136,6 +136,10 @@ function searchTeam() {
         count = 0
         ifPkmnExist = false
 
+        if (!$("#checkboxAlternativeList").is(':checked') && !vgcTeams[i].is_official ) {
+            continue;
+        }
+
         if (!$("#selectAllPkmn").is(':checked')) {
             for (var j = 0; j < inputPkmnList.length; j++) {
                 pkmn = inputPkmnList[j];

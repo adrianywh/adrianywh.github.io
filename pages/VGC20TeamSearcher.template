@@ -85,6 +85,15 @@
                 <option>Series 1</option>
             </select>
         </div>
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-2">
+            </br>
+            <label class="checkbox">
+                <input type="checkbox" id="checkboxAlternativeList">
+                Include alternative list
+            </label>
+        </div>
     </div>
     <br>
     <div class="form-row">
