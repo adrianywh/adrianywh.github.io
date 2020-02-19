@@ -241,7 +241,11 @@ function searchTeam() {
         $("#sim6body").html("");
         for (var i = 0; i < sim6.length; i++) {
             sim6[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
-            sim6builder += "<p>" + sim6[i].playlist_text + " - " + sim6[i].event_date + ", " + sim6[i].region_text + ", " + sim6[i].country_text + " " + sim6[i].player_text + " Ranking: " + sim6[i].standing_text + "</P>";
+            sim6builder += "<p>" 
+            if(!sim6[i].is_official){
+                sim6builder += "**";
+            }
+            sim6builder += sim6[i].playlist_text + " - " + sim6[i].event_date + ", " + sim6[i].region_text + ", " + sim6[i].country_text + " " + sim6[i].player_text + " Ranking: " + sim6[i].standing_text + "</P>";
             sim6builder += "<div class='row'>";
             sim6builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim6[i].img1_text + "' ><figcaption class='figure-caption'>" + sim6[i].pkmn1_text + "</figcaption></figure></div>";
             sim6builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim6[i].img2_text + "' ><figcaption class='figure-caption'>" + sim6[i].pkmn2_text + "</figcaption></figure></div>";
@@ -265,7 +269,11 @@ function searchTeam() {
         $("#sim5body").html("");
         for (var i = 0; i < sim5.length; i++) {
             sim5[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
-            sim5builder += "<p>" + sim5[i].playlist_text + " - " + sim5[i].event_date + ", " + sim5[i].region_text + ", " + sim5[i].country_text + " " + sim5[i].player_text + " Ranking: " + sim5[i].standing_text + "</P>";
+            sim5builder += "<p>"
+            if(!sim5[i].is_official){
+                sim5builder += "**";
+            }
+            sim5builder += sim5[i].playlist_text + " - " + sim5[i].event_date + ", " + sim5[i].region_text + ", " + sim5[i].country_text + " " + sim5[i].player_text + " Ranking: " + sim5[i].standing_text + "</P>";
             sim5builder += "<div class='row'>";
             sim5builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim5[i].img1_text + "' ><figcaption class='figure-caption'>" + sim5[i].pkmn1_text + "</figcaption></figure></div>";
             sim5builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim5[i].img2_text + "' ><figcaption class='figure-caption'>" + sim5[i].pkmn2_text + "</figcaption></figure></div>";
@@ -289,7 +297,11 @@ function searchTeam() {
         $("#sim4body").html("");
         for (var i = 0; i < sim4.length; i++) {
             sim4[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
-            sim4builder += "<p>" + sim4[i].playlist_text + " - " + sim4[i].event_date + ", " + sim4[i].region_text + ", " + sim4[i].country_text + " " + sim4[i].player_text + " Ranking: " + sim4[i].standing_text + "</P>";
+            sim4builder += "<p>"
+            if(!sim4[i].is_official){
+                sim4builder += "**";
+            }
+            sim4builder += sim4[i].playlist_text + " - " + sim4[i].event_date + ", " + sim4[i].region_text + ", " + sim4[i].country_text + " " + sim4[i].player_text + " Ranking: " + sim4[i].standing_text + "</P>";
             sim4builder += "<div class='row'>";
             sim4builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim4[i].img1_text + "' ><figcaption class='figure-caption'>" + sim4[i].pkmn1_text + "</figcaption></figure></div>";
             sim4builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim4[i].img2_text + "' ><figcaption class='figure-caption'>" + sim4[i].pkmn2_text + "</figcaption></figure></div>";
@@ -313,7 +325,11 @@ function searchTeam() {
         $("#sim3body").html("");
         for (var i = 0; i < sim3.length; i++) {
             sim3[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
-            sim3builder += "<p>" + sim3[i].playlist_text + " - " + sim3[i].event_date + ", " + sim3[i].region_text + ", " + sim3[i].country_text + " " + sim3[i].player_text + " Ranking: " + sim3[i].standing_text + "</P>";
+            sim3builder += "<p>" 
+            if(!sim3[i].is_official){
+                sim3builder += "**";
+            }
+            sim3builder += sim3[i].playlist_text + " - " + sim3[i].event_date + ", " + sim3[i].region_text + ", " + sim3[i].country_text + " " + sim3[i].player_text + " Ranking: " + sim3[i].standing_text + "</P>";
             sim3builder += "<div class='row'>";
             sim3builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim3[i].img1_text + "' ><figcaption class='figure-caption'>" + sim3[i].pkmn1_text + "</figcaption></figure></div>";
             sim3builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim3[i].img2_text + "' ><figcaption class='figure-caption'>" + sim3[i].pkmn2_text + "</figcaption></figure></div>";
@@ -337,7 +353,11 @@ function searchTeam() {
         $("#sim2body").html("");
         for (var i = 0; i < sim2.length; i++) {
             sim2[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
-            sim2builder += "<p>" + sim2[i].playlist_text + " - " + sim2[i].event_date + ", " + sim2[i].region_text + ", " + sim2[i].country_text + " " + sim2[i].player_text + " Ranking: " + sim2[i].standing_text + "</P>";
+            sim2builder += "<p>" 
+            if(!sim2[i].is_official){
+                sim2builder += "**";
+            }
+            sim2builder += sim2[i].playlist_text + " - " + sim2[i].event_date + ", " + sim2[i].region_text + ", " + sim2[i].country_text + " " + sim2[i].player_text + " Ranking: " + sim2[i].standing_text + "</P>";
             sim2builder += "<div class='row'>";
             sim2builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim2[i].img1_text + "' ><figcaption class='figure-caption'>" + sim2[i].pkmn1_text + "</figcaption></figure></div>";
             sim2builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim2[i].img2_text + "' ><figcaption class='figure-caption'>" + sim2[i].pkmn2_text + "</figcaption></figure></div>";
@@ -361,7 +381,11 @@ function searchTeam() {
         $("#sim1body").html("");
         for (var i = 0; i < sim1.length; i++) {
             sim1[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
-            sim1builder += "<p>" + sim1[i].playlist_text + " - " + sim1[i].event_date + ", " + sim1[i].region_text + ", " + sim1[i].country_text + " " + sim1[i].player_text + " Ranking: " + sim1[i].standing_text + "</P>";
+            sim1builder += "<p>"
+            if(!sim1[i].is_official){
+                sim1builder += "**";
+            }
+            sim1builder += sim1[i].playlist_text + " - " + sim1[i].event_date + ", " + sim1[i].region_text + ", " + sim1[i].country_text + " " + sim1[i].player_text + " Ranking: " + sim1[i].standing_text + "</P>";
             sim1builder += "<div class='row'>";
             sim1builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim1[i].img1_text + "' ><figcaption class='figure-caption'>" + sim1[i].pkmn1_text + "</figcaption></figure></div>";
             sim1builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim1[i].img2_text + "' ><figcaption class='figure-caption'>" + sim1[i].pkmn2_text + "</figcaption></figure></div>";
