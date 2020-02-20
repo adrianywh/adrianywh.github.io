@@ -117,7 +117,7 @@ function searchTeam() {
     ga('send', {
         hitType: 'event',
         eventCategory: 'Team Search',
-        eventAction: 'vgc20 team search',
+        eventAction: 'vgc20 team search - '+$("#checkboxAlternativeList").is(':checked'),
         eventLabel: inputPkmnList.join(", ")
     });
 
