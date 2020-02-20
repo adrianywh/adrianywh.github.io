@@ -1,5 +1,2 @@
 **/.vscode/*
-**/tools/*.exe
-**/tools/*.bat
-**/tools/build/*
-**/tools/dist/*
+**/tools/*
