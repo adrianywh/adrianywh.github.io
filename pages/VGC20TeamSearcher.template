@@ -82,7 +82,8 @@
             <label>Series:</label>
             <select class="form-control" id="selectSeries">
                 <option selected>All</option>
-                <option>Series 1</option>
+                <option>Series 2</option>
+                <option>Series 3</option>
             </select>
         </div>
         <div class="col-lg-2">
