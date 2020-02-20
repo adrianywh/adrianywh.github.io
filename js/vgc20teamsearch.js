@@ -114,10 +114,14 @@ function searchTeam() {
         inputPkmnList = ['-']
     }
 
+    eventActionDEsc = "vgcstats";
+    if ($("#checkboxAlternativeList").is(':checked')){
+        eventActionDEsc = "vgcstats and alt"
+    }
     ga('send', {
         hitType: 'event',
         eventCategory: 'Team Search',
-        eventAction: 'vgc20 team search - '+$("#checkboxAlternativeList").is(':checked'),
+        eventAction: 'vgc20 team search - '+eventActionDEsc,
         eventLabel: inputPkmnList.join(", ")
     });
 
