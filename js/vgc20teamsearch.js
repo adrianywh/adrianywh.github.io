@@ -1,4 +1,4 @@
-var lastUpdated = "2020-February-22";
+var lastUpdated = "2020-February-23";
 var vgcTeams;
 
 $( document ).ready(function() {
