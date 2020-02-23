@@ -72,8 +72,9 @@
             <label>Event Type:</label>
             <select class="form-control" id="selectEventType">
                 <option selected>All</option>
-                <option>MSS</option>
                 <option>PC</option>
+                <option>MSS</option>
+                <option>SP</option>
                 <option>REG</option>
                 <option>NAT</option>
             </select>
