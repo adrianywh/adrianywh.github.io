@@ -13,7 +13,7 @@ console.log("hello world- from ayongwh");
             ga('send', 'pageview');
 
             context.app.swap('');
-            context.render('/pages/UsumBtHelper.template', {})
+            context.render('/pages/UsumBtHelper.html', {})
                 .appendTo(context.$element());
         })
 
@@ -24,7 +24,7 @@ console.log("hello world- from ayongwh");
             ga('send', 'pageview');
 
             context.app.swap('');
-            context.render('/pages/VGC20TeamSearcher.template', {})
+            context.render('/pages/VGC20TeamSearcher.html', {})
                 .appendTo(context.$element());
         });
 
@@ -35,7 +35,7 @@ console.log("hello world- from ayongwh");
             ga('send', 'pageview');
 
             context.app.swap('');
-            context.render('/pages/VGC19TeamSearcher.template', {})
+            context.render('/pages/VGC19TeamSearcher.html', {})
                 .appendTo(context.$element());
         });
 
@@ -46,7 +46,7 @@ console.log("hello world- from ayongwh");
             ga('send', 'pageview');
 
             context.app.swap('');
-            context.render('/pages/PrivacyPolicy.template', {})
+            context.render('/pages/PrivacyPolicy.html', {})
                 .appendTo(context.$element());
         });
 
