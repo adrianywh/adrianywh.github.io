@@ -1,8 +1,4 @@
----
-layout: default
-title: VGC19 Team Searcher
-permalink: /vgc19
----
+<title>VGC20 Team Searcher</title>
 
 <form id="vgcHelper" class="container">
     <!--     <figure class='figure float-right'>
@@ -76,8 +72,9 @@ permalink: /vgc19
             <label>Event Type:</label>
             <select class="form-control" id="selectEventType">
                 <option selected>All</option>
-                <option>MSS</option>
                 <option>PC</option>
+                <option>MSS</option>
+                <option>SP</option>
                 <option>REG</option>
                 <option>NAT</option>
             </select>
@@ -86,10 +83,18 @@ permalink: /vgc19
             <label>Series:</label>
             <select class="form-control" id="selectSeries">
                 <option selected>All</option>
-                <option>Sun</option>
-                <option>Moon</option>
-                <option>Ultra</option>
+                <option>Series 2</option>
+                <option>Series 3</option>
             </select>
+        </div>
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-2">
+            </br>
+            <label class="checkbox">
+                <input type="checkbox" id="checkboxAlternativeList">
+                Include alternative list
+            </label>
         </div>
     </div>
     <br>
@@ -228,4 +233,4 @@ permalink: /vgc19
     </div>
 </div> -->
 
-<script src="/assets/js/vgc19teamsearch.js"></script>
+<script src="js/vgc20teamsearch.js"></script>
