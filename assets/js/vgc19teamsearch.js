@@ -2,7 +2,7 @@ var lastUpdated = "2019-October-20";
 var vgcTeams;
 
 $( document ).ready(function() {
-    $.getJSON( '/resource/vgc19Teams.json')
+    $.getJSON( '/assets/resource/vgc19Teams.json')
         .then(function (items) {
             vgcTeams = items
         })
