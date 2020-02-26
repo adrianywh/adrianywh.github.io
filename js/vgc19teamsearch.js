@@ -82,7 +82,6 @@ $(document).on("change", "#selectAllPkmn", function () {
 
 function searchTeam() {
     console.log("getSuggestionBtn")
-    var compType = "all";
     var limit = $("#selectLimit").val();
     var inputPkmnList = [];
 
@@ -132,38 +131,31 @@ function searchTeam() {
     var sim5 = []
     var sim6 = []
     for (var i = 0; i < vgcTeams.length; i++) {
-        count = 0
-        ifPkmnExist = false
+        var count = 0
 
         if (!$("#selectAllPkmn").is(':checked')) {
             for (var j = 0; j < inputPkmnList.length; j++) {
-                pkmn = inputPkmnList[j];
+                var pkmn = inputPkmnList[j];
                 if (pkmn.length == 0) {
                     continue
                 }
 
                 if (vgcTeams[i].pkmn1_text.toUpperCase() == pkmn.toUpperCase()) {
-                    ifPkmnExist = true;
                     count++;
                 }
                 if (vgcTeams[i].pkmn2_text.toUpperCase() == pkmn.toUpperCase()) {
-                    ifPkmnExist = true;
                     count++;
                 }
                 if (vgcTeams[i].pkmn3_text.toUpperCase() == pkmn.toUpperCase()) {
-                    ifPkmnExist = true;
                     count++;
                 }
                 if (vgcTeams[i].pkmn4_text.toUpperCase() == pkmn.toUpperCase()) {
-                    ifPkmnExist = true;
                     count++;
                 }
                 if (vgcTeams[i].pkmn5_text.toUpperCase() == pkmn.toUpperCase()) {
-                    ifPkmnExist = true;
                     count++;
                 }
                 if (vgcTeams[i].pkmn6_text.toUpperCase() == pkmn.toUpperCase()) {
-                    ifPkmnExist = true;
                     count++;
                 }
             }

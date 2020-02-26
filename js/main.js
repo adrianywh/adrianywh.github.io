@@ -7,7 +7,6 @@ console.log("hello world- from ayongwh");
         this.use('Template');
 
         this.get('#/usum-bt-helper', function (context) {
-            var str = location.href.toLowerCase();
 
             ga('set', 'page', '/usum-bt-helper');
             ga('send', 'pageview');
@@ -18,7 +17,6 @@ console.log("hello world- from ayongwh");
         })
 
         this.get('#/', function (context) {
-            var str = location.href.toLowerCase();
 
             ga('set', 'page', '/VGC20TeamSearcher');
             ga('send', 'pageview');
@@ -29,7 +27,6 @@ console.log("hello world- from ayongwh");
         });
 
         this.get('#/vgc19', function (context) {
-            var str = location.href.toLowerCase();
 
             ga('set', 'page', '/VGC19TeamSearcher');
             ga('send', 'pageview');
@@ -40,7 +37,6 @@ console.log("hello world- from ayongwh");
         });
 
         this.get('#/privacy', function (context) {
-            var str = location.href.toLowerCase();
 
             ga('set', 'page', '/PrivacyPolicy');
             ga('send', 'pageview');
