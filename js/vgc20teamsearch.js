@@ -10,10 +10,10 @@ $( document ).ready(function() {
             var uniquePkmn = [];
             var uniquePlayer = [];
 
-            for (var i = 0; i < vgcTeams.length; i++) {
+            for (let i = 0; i < vgcTeams.length; i++) {
                 var vgcTeamPkmn = [vgcTeams[i].pkmn1_text, vgcTeams[i].pkmn2_text, vgcTeams[i].pkmn3_text, vgcTeams[i].pkmn4_text, vgcTeams[i].pkmn5_text, vgcTeams[i].pkmn6_text]
-                for (var j = 0; j < vgcTeamPkmn.length; j++) {
-                    var isPkmnsExist = false;
+                for (let j = 0; j < vgcTeamPkmn.length; j++) {
+                    let isPkmnsExist = false;
                     for (var k = 0; k < uniquePkmn.length; k++) {
                         if (uniquePkmn[k].toUpperCase() == vgcTeamPkmn[j].toUpperCase()) {
                             isPkmnsExist = true;
@@ -24,8 +24,8 @@ $( document ).ready(function() {
                     }
                 }
 
-                var isPlayerExist = false;
-                for (var j = 0; j < uniquePlayer.length; j++) {
+                let isPlayerExist = false;
+                for (let j = 0; j < uniquePlayer.length; j++) {
                     if (uniquePlayer[j].toUpperCase() == vgcTeams[i].player_text.toUpperCase()) {
                         isPlayerExist = true;
                         break;
@@ -39,7 +39,7 @@ $( document ).ready(function() {
         $("#vgcPlayer").html("");
         uniquePlayer.sort();
         var optionBuilderPlayer = "<option selected>(All)</option>";
-        for (var i = 0; i < uniquePlayer.length; i++) {
+        for (let i = 0; i < uniquePlayer.length; i++) {
             if (uniquePlayer[i] == "") {
                 optionBuilderPlayer += "<option value=''>";
                 optionBuilderPlayer += "(None)";
@@ -56,7 +56,7 @@ $( document ).ready(function() {
         $(".vgcInputPkmn").html("");
         uniquePkmn.sort();
         var optionBuilderPkmn = "<option>-</option>";
-        for (var i = 0; i < uniquePkmn.length; i++) {
+        for (let i = 0; i < uniquePkmn.length; i++) {
             optionBuilderPkmn += "<option>";
             optionBuilderPkmn += uniquePkmn[i];
             optionBuilderPkmn += "</option>";
@@ -83,7 +83,7 @@ $(document).on("change", "#selectAllPkmn", function () {
 function searchTeam() {
     console.log("getSuggestionBtn")
     var limit = $("#selectLimit").val();
-    var inputPkmnList = [];
+    let inputPkmnList = [];
 
     if (!$("#selectAllPkmn").is(':checked')) {
         if ($("#vgcPkmn1").val() != "-") {
@@ -135,7 +135,7 @@ function searchTeam() {
     var sim4 = []
     var sim5 = []
     var sim6 = []
-    for (var i = 0; i < vgcTeams.length; i++) {
+    for (let i = 0; i < vgcTeams.length; i++) {
         var count = 0
 
         if (!$("#checkboxAlternativeList").is(':checked') && !vgcTeams[i].is_official ) {
@@ -143,7 +143,7 @@ function searchTeam() {
         }
 
         if (!$("#selectAllPkmn").is(':checked')) {
-            for (var j = 0; j < inputPkmnList.length; j++) {
+            for (let j = 0; j < inputPkmnList.length; j++) {
                 var pkmn = inputPkmnList[j];
                 if (pkmn.length == 0) {
                     continue
@@ -180,9 +180,9 @@ function searchTeam() {
             continue
         }
 
-        var isPlayerFound = false;
+        let isPlayerFound = false;
         if ($("#vgcPlayer").val() != "(All)") {
-            for (var j = 0; j < $("#vgcPlayer").val().length; j++) {
+            for (let j = 0; j < $("#vgcPlayer").val().length; j++) {
                 if ($("#vgcPlayer").val()[j].toUpperCase() == vgcTeams[i].player_text.toUpperCase()) {
                     isPlayerFound = true;
                     break;
@@ -229,14 +229,13 @@ function searchTeam() {
 
     $(".card").hide();
     $(".collapse").removeClass("show")
-    var isExpanded = false;
-    var isResultsFound = false;
+    let isExpanded = false;
+    let isResultsFound = false;
     if (sim6.length > 0) {
         $("#cardOne").show();
         var sim6builder = "";
         $("#sim6body").html("");
-        for (var i = 0; i < sim6.length; i++) {
-            sim6[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+        for (let i = 0; i < sim6.length; i++) {
             sim6builder += "<p>" 
             if(!sim6[i].is_official){
                 sim6builder += "**";
@@ -263,8 +262,7 @@ function searchTeam() {
         $("#cardTwo").show();
         var sim5builder = "";
         $("#sim5body").html("");
-        for (var i = 0; i < sim5.length; i++) {
-            sim5[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+        for (let i = 0; i < sim5.length; i++) {
             sim5builder += "<p>"
             if(!sim5[i].is_official){
                 sim5builder += "**";
@@ -291,8 +289,7 @@ function searchTeam() {
         $("#cardThree").show();
         var sim4builder = "";
         $("#sim4body").html("");
-        for (var i = 0; i < sim4.length; i++) {
-            sim4[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+        for (let i = 0; i < sim4.length; i++) {
             sim4builder += "<p>"
             if(!sim4[i].is_official){
                 sim4builder += "**";
@@ -319,8 +316,7 @@ function searchTeam() {
         $("#cardFour").show();
         var sim3builder = "";
         $("#sim3body").html("");
-        for (var i = 0; i < sim3.length; i++) {
-            sim3[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+        for (let i = 0; i < sim3.length; i++) {
             sim3builder += "<p>" 
             if(!sim3[i].is_official){
                 sim3builder += "**";
@@ -347,8 +343,7 @@ function searchTeam() {
         $("#cardFive").show();
         var sim2builder = "";
         $("#sim2body").html("");
-        for (var i = 0; i < sim2.length; i++) {
-            sim2[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+        for (let i = 0; i < sim2.length; i++) {
             sim2builder += "<p>" 
             if(!sim2[i].is_official){
                 sim2builder += "**";
@@ -375,8 +370,7 @@ function searchTeam() {
         $("#cardSix").show();
         var sim1builder = "";
         $("#sim1body").html("");
-        for (var i = 0; i < sim1.length; i++) {
-            sim1[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+        for (let i = 0; i < sim1.length; i++) {
             sim1builder += "<p>"
             if(!sim1[i].is_official){
                 sim1builder += "**";
