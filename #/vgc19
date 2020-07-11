@@ -1,9 +1,91 @@
----
-layout: layouts/default.html
-title: VGC20 Team Searcher
-permalink: "/"
----
-<form id="vgcHelper" class="container">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.png">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="https://www.serebii.net/shuffle/pokemon/576.png">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="adrianywh.github.io/assets/css/main.css">
+
+        <title>VGC19 Team Searcher</title>
+        
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        
+            ga('create', 'UA-115953143-1', 'auto');
+        </script>
+        <!-- End Google Analytics -->
+    </head>
+
+  <body class="has-background-black">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+
+<div id="menu">
+    <div class="jumbotron">
+        <img src="https://www.serebii.net/art/th/576.png" class="float-left">
+        <h1 class="display-4">VGCStats</h1>
+        <p class="lead">Aiming to record every Midseason Showdown, Regional, and National VGC tournament for further analysis. By <a href="https://twitter.com/profshroomish">@profshroomish</a></p> 
+
+        <nav class="nav nav-fill main-nav">
+        <a class="text-muted nav-item nav-link" href="https://vgcstats.com" exact>Stats</router-link>
+
+        <a class="text-muted nav-item nav-link router-link-active" href="https://teams.vgcstats.com">Teams</a>
+
+        <a class="text-muted nav-item nav-link" href="https://articles.vgcstats.com">Articles</a>
+
+        <b-nav-item-dropdown class="text-muted nav-item-dropdown nav-link" text="Events">
+            <a class="text-muted nav-item nav-link" href="https://vgcstats.com/#/pc">PC</a>
+            <a class="text-muted nav-item nav-link" href="https://vgcstats.com/#/mss">MSS</a>
+            <a class="text-muted nav-item nav-link" href="https://vgcstats.com/#/regs">Regs</a>
+            <a class="text-muted nav-item nav-link" href="https://vgcstats.com/#/nats">Nats</a>
+        </b-nav-item-dropdown>
+
+        
+        <b-nav-item-dropdown class="text-muted nav-item-dropdown nav-link" text="Other">
+            <a class="text-muted nav-item nav-link" v-cloak href="https://gw.vgcstats.com">Galar Weeklies</a>
+            <a class="text-muted nav-item nav-link" v-cloak href="https://2019.vgcstats.com">2019</a>            
+            <a class="text-muted nav-item nav-link" v-cloak href="https://2018.vgcstats.com">2018</a>
+            <a class="text-muted nav-item nav-link" v-cloak href="https://worlds19.vgcstats.com">Worlds 19</a>
+            <a class="text-muted nav-item nav-link" v-cloak href="https://worlds.vgcstats.com">Worlds 18</a>
+        </b-nav-item-dropdown>
+        <a class="text-info nav-item nav-link" href="https://www.patreon.com/vgcstats">Support us!</a>
+        </nav>
+    </div>
+    </div>
+<br />
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({ el: '#menu' });
+</script>
+
+    <!-- Google Analytics --><!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115953143-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
+    <!-- End Google Analytics -->
+
+    <script src="adrianywh.github.io/assets/vendor/js/jquery.min.js"></script>
+    <script src="adrianywh.github.io/assets/vendor/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    
+    <div id="app-body">
+
+        <form id="vgcHelper" class="container">
     <div class="form-row">
         <div class="col-lg-2">
             <label>Player:</label>
@@ -69,9 +151,8 @@ permalink: "/"
             <label>Event Type:</label>
             <select class="form-control" id="selectEventType">
                 <option selected>All</option>
-                <option>PC</option>
                 <option>MSS</option>
-                <option>SP</option>
+                <option>PC</option>
                 <option>REG</option>
                 <option>NAT</option>
             </select>
@@ -80,18 +161,10 @@ permalink: "/"
             <label>Series:</label>
             <select class="form-control" id="selectSeries">
                 <option selected>All</option>
-                <option>Series 2</option>
-                <option>Series 3</option>
+                <option>Sun</option>
+                <option>Moon</option>
+                <option>Ultra</option>
             </select>
-        </div>
-        <div class="col-lg-2">
-        </div>
-        <div class="col-lg-2">
-            </br>
-            <label class="checkbox">
-                <input type="checkbox" id="checkboxAlternativeList">
-                Include alternative list
-            </label>
         </div>
     </div>
     <br>
@@ -215,5 +288,24 @@ permalink: "/"
         Last updated on <a id="lastUpdatedText"></a>
     </div>
 </div>
+<!-- <div class="container">
+    <div class="col-12">
+        Notes:
+        <ul>
+            <li>Best viewed on desktop</li>
+            <li>Competition team data from <a href="https://vgcstats.com">vgcstats.com</a></li>
+            <li>Developed using <a href="https://getbootstrap.com/">Bootstrap</a> and <a href="http://sammyjs.org/">sammyjs</a></a></li>
+            <li>Bug report/commments:
+                <a href="https://github.com/adrianywh/adrianywh.github.io/issues">here</a>
+            </li>
+            <ul>
+                <hr>
+    </div>
+</div> -->
 
-<script src="{{site.baseurl}}/assets/js/vgc20teamsearch.js"></script>
+<script src="adrianywh.github.io/assets/js/vgc19teamsearch.js"></script>
+
+  
+    </div>
+  </body>
+</html>
