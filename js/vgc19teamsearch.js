@@ -1,8 +1,8 @@
-var lastUpdated = "2020-March-16";
+var lastUpdated = "2019-October-20";
 var vgcTeams;
 
 $( document ).ready(function() {
-    $.getJSON( '{{site.baseurl}}/assets/resource/vgc20Teams.json')
+    $.getJSON( '/resource/vgc19Teams.json')
         .then(function (items) {
             vgcTeams = items
         })
@@ -10,10 +10,10 @@ $( document ).ready(function() {
             var uniquePkmn = [];
             var uniquePlayer = [];
 
-            for (let i = 0; i < vgcTeams.length; i++) {
+            for (var i = 0; i < vgcTeams.length; i++) {
                 var vgcTeamPkmn = [vgcTeams[i].pkmn1_text, vgcTeams[i].pkmn2_text, vgcTeams[i].pkmn3_text, vgcTeams[i].pkmn4_text, vgcTeams[i].pkmn5_text, vgcTeams[i].pkmn6_text]
-                for (let j = 0; j < vgcTeamPkmn.length; j++) {
-                    let isPkmnsExist = false;
+                for (var j = 0; j < vgcTeamPkmn.length; j++) {
+                    var isPkmnsExist = false;
                     for (var k = 0; k < uniquePkmn.length; k++) {
                         if (uniquePkmn[k].toUpperCase() == vgcTeamPkmn[j].toUpperCase()) {
                             isPkmnsExist = true;
@@ -24,8 +24,8 @@ $( document ).ready(function() {
                     }
                 }
 
-                let isPlayerExist = false;
-                for (let j = 0; j < uniquePlayer.length; j++) {
+                var isPlayerExist = false;
+                for (var j = 0; j < uniquePlayer.length; j++) {
                     if (uniquePlayer[j].toUpperCase() == vgcTeams[i].player_text.toUpperCase()) {
                         isPlayerExist = true;
                         break;
@@ -39,7 +39,7 @@ $( document ).ready(function() {
         $("#vgcPlayer").html("");
         uniquePlayer.sort();
         var optionBuilderPlayer = "<option selected>(All)</option>";
-        for (let i = 0; i < uniquePlayer.length; i++) {
+        for (var i = 0; i < uniquePlayer.length; i++) {
             if (uniquePlayer[i] == "") {
                 optionBuilderPlayer += "<option value=''>";
                 optionBuilderPlayer += "(None)";
@@ -56,7 +56,7 @@ $( document ).ready(function() {
         $(".vgcInputPkmn").html("");
         uniquePkmn.sort();
         var optionBuilderPkmn = "<option>-</option>";
-        for (let i = 0; i < uniquePkmn.length; i++) {
+        for (var i = 0; i < uniquePkmn.length; i++) {
             optionBuilderPkmn += "<option>";
             optionBuilderPkmn += uniquePkmn[i];
             optionBuilderPkmn += "</option>";
@@ -68,7 +68,7 @@ $( document ).ready(function() {
         $("#vgcPlayer").select2();
     })
 
-     $("#lastUpdatedText").html(lastUpdated)
+    $("#lastUpdatedText").html(lastUpdated)
 })
 
 /********************vgc helper******************** */
@@ -83,7 +83,14 @@ $(document).on("change", "#selectAllPkmn", function () {
 function searchTeam() {
     console.log("getSuggestionBtn")
     var limit = $("#selectLimit").val();
-    let inputPkmnList = [];
+    var inputPkmnList = [];
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Team Search',
+        eventAction: 'vgc19 team search',
+        eventLabel: 'vgc19 team search'
+    });
 
     if (!$("#selectAllPkmn").is(':checked')) {
         if ($("#vgcPkmn1").val() != "-") {
@@ -107,22 +114,10 @@ function searchTeam() {
 
         if(inputPkmnList.length == 0){
             $("#selectAllPkmn").prop("checked",true).trigger("change");
-            inputPkmnList = ['-']
         }
     } else {
         inputPkmnList = ['-']
     }
-
-    var eventActionDEsc = "vgcstats";
-    if ($("#checkboxAlternativeList").is(':checked')){
-        eventActionDEsc = "vgcstats and alt"
-    }
-    ga('send', {
-        hitType: 'event',
-        eventCategory: 'Team Search',
-        eventAction: 'vgc20 team search - '+eventActionDEsc,
-        eventLabel: inputPkmnList.join(", ")
-    });
 
     if (limit > inputPkmnList.length && inputPkmnList.length != 0) {
         limit = inputPkmnList.length
@@ -135,15 +130,11 @@ function searchTeam() {
     var sim4 = []
     var sim5 = []
     var sim6 = []
-    for (let i = 0; i < vgcTeams.length; i++) {
+    for (var i = 0; i < vgcTeams.length; i++) {
         var count = 0
 
-        if (!$("#checkboxAlternativeList").is(':checked') && !vgcTeams[i].is_official ) {
-            continue;
-        }
-
         if (!$("#selectAllPkmn").is(':checked')) {
-            for (let j = 0; j < inputPkmnList.length; j++) {
+            for (var j = 0; j < inputPkmnList.length; j++) {
                 var pkmn = inputPkmnList[j];
                 if (pkmn.length == 0) {
                     continue
@@ -180,9 +171,9 @@ function searchTeam() {
             continue
         }
 
-        let isPlayerFound = false;
+        var isPlayerFound = false;
         if ($("#vgcPlayer").val() != "(All)") {
-            for (let j = 0; j < $("#vgcPlayer").val().length; j++) {
+            for (var j = 0; j < $("#vgcPlayer").val().length; j++) {
                 if ($("#vgcPlayer").val()[j].toUpperCase() == vgcTeams[i].player_text.toUpperCase()) {
                     isPlayerFound = true;
                     break;
@@ -229,18 +220,15 @@ function searchTeam() {
 
     $(".card").hide();
     $(".collapse").removeClass("show")
-    let isExpanded = false;
-    let isResultsFound = false;
+    var isExpanded = false;
+    var isResultsFound = false;
     if (sim6.length > 0) {
         $("#cardOne").show();
         var sim6builder = "";
         $("#sim6body").html("");
-        for (let i = 0; i < sim6.length; i++) {
-            sim6builder += "<p>" 
-            if(!sim6[i].is_official){
-                sim6builder += "**";
-            }
-            sim6builder += sim6[i].playlist_text + " - " + sim6[i].event_date + ", " + sim6[i].region_text + ", " + sim6[i].country_text + " " + sim6[i].player_text + " Ranking: " + sim6[i].placing_text + "</P>";
+        for (var i = 0; i < sim6.length; i++) {
+            sim6[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+            sim6builder += "<p>" + sim6[i].playlist_text + " - " + sim6[i].event_date + ", " + sim6[i].region_text + ", " + sim6[i].country_text + " " + sim6[i].player_text + " Ranking: " + sim6[i].standing_text + "</P>";
             sim6builder += "<div class='row'>";
             sim6builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim6[i].img1_text + "' ><figcaption class='figure-caption'>" + sim6[i].pkmn1_text + "</figcaption></figure></div>";
             sim6builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim6[i].img2_text + "' ><figcaption class='figure-caption'>" + sim6[i].pkmn2_text + "</figcaption></figure></div>";
@@ -262,12 +250,9 @@ function searchTeam() {
         $("#cardTwo").show();
         var sim5builder = "";
         $("#sim5body").html("");
-        for (let i = 0; i < sim5.length; i++) {
-            sim5builder += "<p>"
-            if(!sim5[i].is_official){
-                sim5builder += "**";
-            }
-            sim5builder += sim5[i].playlist_text + " - " + sim5[i].event_date + ", " + sim5[i].region_text + ", " + sim5[i].country_text + " " + sim5[i].player_text + " Ranking: " + sim5[i].placing_text + "</P>";
+        for (var i = 0; i < sim5.length; i++) {
+            sim5[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+            sim5builder += "<p>" + sim5[i].playlist_text + " - " + sim5[i].event_date + ", " + sim5[i].region_text + ", " + sim5[i].country_text + " " + sim5[i].player_text + " Ranking: " + sim5[i].standing_text + "</P>";
             sim5builder += "<div class='row'>";
             sim5builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim5[i].img1_text + "' ><figcaption class='figure-caption'>" + sim5[i].pkmn1_text + "</figcaption></figure></div>";
             sim5builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim5[i].img2_text + "' ><figcaption class='figure-caption'>" + sim5[i].pkmn2_text + "</figcaption></figure></div>";
@@ -289,12 +274,9 @@ function searchTeam() {
         $("#cardThree").show();
         var sim4builder = "";
         $("#sim4body").html("");
-        for (let i = 0; i < sim4.length; i++) {
-            sim4builder += "<p>"
-            if(!sim4[i].is_official){
-                sim4builder += "**";
-            }
-            sim4builder += sim4[i].playlist_text + " - " + sim4[i].event_date + ", " + sim4[i].region_text + ", " + sim4[i].country_text + " " + sim4[i].player_text + " Ranking: " + sim4[i].placing_text + "</P>";
+        for (var i = 0; i < sim4.length; i++) {
+            sim4[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+            sim4builder += "<p>" + sim4[i].playlist_text + " - " + sim4[i].event_date + ", " + sim4[i].region_text + ", " + sim4[i].country_text + " " + sim4[i].player_text + " Ranking: " + sim4[i].standing_text + "</P>";
             sim4builder += "<div class='row'>";
             sim4builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim4[i].img1_text + "' ><figcaption class='figure-caption'>" + sim4[i].pkmn1_text + "</figcaption></figure></div>";
             sim4builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim4[i].img2_text + "' ><figcaption class='figure-caption'>" + sim4[i].pkmn2_text + "</figcaption></figure></div>";
@@ -316,12 +298,9 @@ function searchTeam() {
         $("#cardFour").show();
         var sim3builder = "";
         $("#sim3body").html("");
-        for (let i = 0; i < sim3.length; i++) {
-            sim3builder += "<p>" 
-            if(!sim3[i].is_official){
-                sim3builder += "**";
-            }
-            sim3builder += sim3[i].playlist_text + " - " + sim3[i].event_date + ", " + sim3[i].region_text + ", " + sim3[i].country_text + " " + sim3[i].player_text + " Ranking: " + sim3[i].placing_text + "</P>";
+        for (var i = 0; i < sim3.length; i++) {
+            sim3[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+            sim3builder += "<p>" + sim3[i].playlist_text + " - " + sim3[i].event_date + ", " + sim3[i].region_text + ", " + sim3[i].country_text + " " + sim3[i].player_text + " Ranking: " + sim3[i].standing_text + "</P>";
             sim3builder += "<div class='row'>";
             sim3builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim3[i].img1_text + "' ><figcaption class='figure-caption'>" + sim3[i].pkmn1_text + "</figcaption></figure></div>";
             sim3builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim3[i].img2_text + "' ><figcaption class='figure-caption'>" + sim3[i].pkmn2_text + "</figcaption></figure></div>";
@@ -343,12 +322,9 @@ function searchTeam() {
         $("#cardFive").show();
         var sim2builder = "";
         $("#sim2body").html("");
-        for (let i = 0; i < sim2.length; i++) {
-            sim2builder += "<p>" 
-            if(!sim2[i].is_official){
-                sim2builder += "**";
-            }
-            sim2builder += sim2[i].playlist_text + " - " + sim2[i].event_date + ", " + sim2[i].region_text + ", " + sim2[i].country_text + " " + sim2[i].player_text + " Ranking: " + sim2[i].placing_text + "</P>";
+        for (var i = 0; i < sim2.length; i++) {
+            sim2[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+            sim2builder += "<p>" + sim2[i].playlist_text + " - " + sim2[i].event_date + ", " + sim2[i].region_text + ", " + sim2[i].country_text + " " + sim2[i].player_text + " Ranking: " + sim2[i].standing_text + "</P>";
             sim2builder += "<div class='row'>";
             sim2builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim2[i].img1_text + "' ><figcaption class='figure-caption'>" + sim2[i].pkmn1_text + "</figcaption></figure></div>";
             sim2builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim2[i].img2_text + "' ><figcaption class='figure-caption'>" + sim2[i].pkmn2_text + "</figcaption></figure></div>";
@@ -370,12 +346,9 @@ function searchTeam() {
         $("#cardSix").show();
         var sim1builder = "";
         $("#sim1body").html("");
-        for (let i = 0; i < sim1.length; i++) {
-            sim1builder += "<p>"
-            if(!sim1[i].is_official){
-                sim1builder += "**";
-            }
-            sim1builder += sim1[i].playlist_text + " - " + sim1[i].event_date + ", " + sim1[i].region_text + ", " + sim1[i].country_text + " " + sim1[i].player_text + " Ranking: " + sim1[i].placing_text + "</P>";
+        for (var i = 0; i < sim1.length; i++) {
+            sim1[i].img = 'https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png';
+            sim1builder += "<p>" + sim1[i].playlist_text + " - " + sim1[i].event_date + ", " + sim1[i].region_text + ", " + sim1[i].country_text + " " + sim1[i].player_text + " Ranking: " + sim1[i].standing_text + "</P>";
             sim1builder += "<div class='row'>";
             sim1builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim1[i].img1_text + "' ><figcaption class='figure-caption'>" + sim1[i].pkmn1_text + "</figcaption></figure></div>";
             sim1builder += "<div class='col-lg-2'> <figure class='figure'> <img class='pkmn-img figure-img img-fluid rounded' src='" + sim1[i].img2_text + "' ><figcaption class='figure-caption'>" + sim1[i].pkmn2_text + "</figcaption></figure></div>";
