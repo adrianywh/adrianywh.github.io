@@ -4,9 +4,17 @@
   "description": "My github page made using Eleventy, TinaCMS and Bootstrap",
   "main": "index.js",
   "scripts": {
+    "serve": "rmdir /s _site && npx tinacms dev -c \"eleventy --serve\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "@tinacms/cli": "^1.5.23",
+    "tinacms": "^1.5.14"
+  }
 }
