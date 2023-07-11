@@ -4,7 +4,7 @@
   "description": "My github page made using Eleventy, TinaCMS and Bootstrap",
   "main": "index.js",
   "scripts": {
-    "serve": "rmdir /s _site && npx tinacms dev -c \"eleventy --serve\"",
+    "serve": "rmdir /s docs && npx tinacms dev -c \"eleventy --serve\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

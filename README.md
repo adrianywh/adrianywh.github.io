@@ -11,4 +11,4 @@ http://localhost:4001/admin/
 http://localhost:8080/
 
 ## to run my custom npm script
-npm rubn-script serve
+npm run-script serve
